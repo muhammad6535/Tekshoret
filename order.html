@@ -2,9 +2,10 @@
 
 <head>
     <title>Barcelona</title>
-    <link rel="stylesheet" href="./css/order.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js">
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js">
     </script>
+    <link rel="stylesheet" href="./css/order.css">
+   
 
 </head>
 
@@ -118,12 +119,11 @@
 
 <script>
     function myFunction() {
-        let clothPrice = $("#cloth input:checked").val();
-        let color = $("#color option:checked").val();
-        let count=0;
-        let logo = $("#logoo .selected").size()*3;
-        let size = $("#size input:checked").val();
-        let numOfitems = $("#num").val();
+        let clothPrice = jQuery("#cloth input:checked").val();
+        let color = jQuery("#color option:checked").val();
+        let logo = jQuery("#logoo .selected").size()*3;
+        let size = jQuery("#size input:checked").val();
+        let numOfitems = jQuery("#num").val();
         let total = (((clothPrice+color+logo)*size)*numOfitems)/100;
         
         document.querySelector("#totalP").innerHTML = total;
@@ -131,7 +131,7 @@
     }
 
 
-    $(".logo").click(function() {
+    jQuery(".logo").click(function() {
         this.classList.add("selected");
     });
 
