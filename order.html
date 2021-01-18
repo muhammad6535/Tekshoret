@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <title>Barcelona</title>
+    <link rel="stylesheet" href="./css/order.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js">
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>
+                Order Form
+            </h1>
+        </div>
+        <form action="https://formspree.io/f/moqpkgzq" method="POST">
+            <br>
+            <label>
+                Order Number:<br>
+            </label>
+            <input type="text" name="orderNumber" placeholder="Name Id" size="30" value="29760734" disabled>
+            <br><br>
+            <label>
+                First Name :<br>
+            </label>
+            <input type="text" name="nameAndID" size="30" maxlength="20">
+            <br><br>
+
+
+            <label>
+                Seconde Name :<br>
+            </label>
+            <input type="text" name="nameAndID" size="30" maxlength="20">
+            <br><br>
+
+            <div id="cloth">
+                <label for="Type">Type of clothing:</label><br>
+                <input type="radio" id="Shirt" name="Type1" value="10" checked="checked">
+                <label for="Type">Shirt-10$</label><br>
+                <input type="radio" id="Undershirt" name="Type1" value="10">
+                <label for="Type">Undershirt-10$</label><br>
+                <input type="radio" id="sweater" name="Type1" value="20">
+                <label for="Type">sweater-20$</label><br>
+                <input type="radio" id="hoodie" name="Type1" value="30">
+                <label for="Type">hoodie-30$</label><br>
+                <input type="radio" id="Coat" name="Type1" value="50">
+                <label for="Type">Coat-50$</label><br>
+            </div>
+
+
+
+            <br><br>
+
+
+            <label for="color">Color:</label><br>
+            <select id="color" name="White">
+                <option value="0">Red</option>
+                <option value="5">Green+5$</option>
+                <option id="blue" value="-2">Blue-2$</option>
+                <option value="0" selected>White</option>
+            </select>
+
+            <br><br>
+
+
+            <dev id=size>
+                <label for="Size">Size:</label><br>
+                <input type="radio" id="s" name="size" value="0.1">
+                <label for="Size">S*0.1</label><br>
+                <input type="radio" id="m" name="size" value="1">
+                <label for="Size">M</label><br>
+                <input type="radio" id="l" name="size" value="1">
+                <label for="Size">L</label><br>
+                <input type="radio" id="xl" name="size" value="1.1">
+                <label for="Size">XL*1.1</label><br>
+            </dev>
+
+
+            <br><br>
+            <div id="logoo">
+                <label>Position of the logo:</label><br>
+                <input class="logo" type="checkbox" id="extras" name="extras" value="3">
+                <label for="vehicle1">Backward-3$</label><br>
+                <input class="logo" type="checkbox" id="extras" name="extras" value="3">
+                <label for=" Parmesan ">Forward-3$</label><br>
+                <input class="logo" type="checkbox" id="extras" name="extras" value="3">
+                <label for=" Parmesan ">Right sleeve-3$</label><br>
+                <input class="logo" type="checkbox" id="extras" name="extras" value="3">
+                <label for=" Parmesan ">Left sleeve-3$</label><br>
+            </div>
+            <br><br>
+
+            <label>
+                Address:
+                <br>
+                <textarea name="address" rows="10" cols="30"></textarea>
+            </label>
+            <br><br>
+            <label>
+                Number of items:<br>
+            </label>
+            <input id="num" type="text" name="orderNumber" placeholder="Name Id" size="30" value="1">
+            <br><br>
+            <button onclick="myFunction()" type="button">Calculate price</button>
+            <br>
+            <label>
+                Total Price: 
+            </label>
+            <label id="totalP">0</label>
+            <br>
+            <br>
+            <input type="submit" value="שלח הזמנה"> <input type="reset" value="התחל מהתחלה">
+        </form>
+    </div>
+</body></html>
+
+<script>
+    function myFunction() {
+        let clothPrice = $("#cloth input:checked").val();
+        let color = $("#color option:checked").val();
+        let count=0;
+        let logo = $("#logoo .selected").size()*3;
+        let size = $("#size input:checked").val();
+        let numOfitems = $("#num").val();
+        let total = (((clothPrice+color+logo)*size)*numOfitems)/100;
+        
+        document.querySelector("#totalP").innerHTML = total;
+
+    }
+
+
+    $(".logo").click(function() {
+        this.classList.add("selected");
+    });
+
+</script>
